@@ -10,7 +10,6 @@ int main()
     int frames = 0;
     std::vector<int>page_ref = { 1,2,3,4,2,4,5,6,2,1,2,3,7,6,3,2,1,2,3,6 };
     std::vector<int>memory;
-    int replacement = 0;
     int index = 0;
     std::vector<int>::iterator page;
     std::cout << "Enter number of frames\n";
@@ -29,8 +28,7 @@ int main()
             else
             {
                 index %= frames;
-                replacement = memory[index];
-                replace(memory.begin(), memory.end(), replacement, *page);
+                replace(memory.begin(), memory.end(), memory[index], *page);
                 faults++;
                 index++;
             }
